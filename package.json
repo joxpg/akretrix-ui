@@ -38,6 +38,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc && mkdir -p dist/styles && cp src/styles/theme.css dist/styles/theme.css",
     "typecheck": "tsc --noEmit",
+    "test": "node --test tests/exports.test.mjs",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {

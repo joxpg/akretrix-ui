@@ -17,10 +17,9 @@ This guide explains how `@joxpg/akretrix-ui` is published to GitHub Packages and
    ```bash
    git push origin main --tags
    ```
-3. The GitHub Actions workflow [publish.yml](file:///Users/johann.trigos/Documents/Github/organization-akretrix/akretrix-ui/.github/workflows/publish.yml) will trigger automatically:
-   - Builds the TypeScript bundle and CSS (`pnpm run build`).
-   - Authenticates using `GITHUB_TOKEN` (which has `packages: write` permissions).
-   - Publishes `@joxpg/akretrix-ui@<version>` to `npm.pkg.github.com`.
+3. The single unified GitHub Actions workflow [.github/workflows/release.yml](file:///Users/johann.trigos/Documents/Github/organization-akretrix/akretrix-ui/.github/workflows/release.yml) will trigger automatically:
+   - **Stage 1 (Quality Gate)**: Runs TypeScript typecheck, tests, and build.
+   - **Stage 2 (Automated Release)**: Computes semantic version, tags git, publishes `@joxpg/akretrix-ui@<version>` to `npm.pkg.github.com`, and creates the GitHub Release.
 
 ---
 
