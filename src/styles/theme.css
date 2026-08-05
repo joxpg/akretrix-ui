@@ -1,0 +1,276 @@
+:root {
+  --ak-cyan: #06b6d4;
+  --ak-cyan-hover: #0891b2;
+  --ak-cyan-glow: rgba(6, 182, 212, 0.25);
+  --ak-emerald: #10b981;
+  --ak-emerald-hover: #059669;
+  --ak-rose: #f43f5e;
+  
+  --ak-bg-backdrop: rgba(3, 7, 18, 0.8);
+  --ak-card-bg: #0f172a;
+  --ak-card-border: rgba(255, 255, 255, 0.1);
+  --ak-input-bg: #1e293b;
+  --ak-input-border: rgba(255, 255, 255, 0.15);
+  --ak-input-border-focus: #06b6d4;
+  
+  --ak-text-primary: #f8fafc;
+  --ak-text-secondary: #94a3b8;
+  --ak-text-muted: #64748b;
+  
+  --ak-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ak-radius-sm: 6px;
+  --ak-radius-md: 10px;
+  --ak-radius-lg: 16px;
+}
+
+/* Modal Backdrop */
+.ak-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: var(--ak-bg-backdrop);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  font-family: var(--ak-font-family);
+  box-sizing: border-box;
+}
+
+.ak-modal-backdrop * {
+  box-sizing: border-box;
+}
+
+.ak-modal-backdrop.ak-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Container Card */
+.ak-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--ak-card-bg);
+  border: 1px solid var(--ak-card-border);
+  border-radius: var(--ak-radius-lg);
+  padding: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 24px var(--ak-cyan-glow);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--ak-text-primary);
+}
+
+.ak-modal-backdrop.ak-active .ak-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.ak-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--ak-text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--ak-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.ak-modal-close:hover {
+  color: var(--ak-text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Typography */
+.ak-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--ak-text-primary);
+}
+
+.ak-modal-subtitle {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ak-text-secondary);
+  margin: 0 0 24px 0;
+}
+
+/* Form Groups */
+.ak-form-group {
+  margin-bottom: 18px;
+}
+
+.ak-form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ak-text-primary);
+  margin-bottom: 6px;
+}
+
+.ak-form-input,
+.ak-form-select,
+.ak-form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--ak-input-bg);
+  border: 1px solid var(--ak-input-border);
+  border-radius: var(--ak-radius-md);
+  color: var(--ak-text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ak-form-input:focus,
+.ak-form-select:focus,
+.ak-form-textarea:focus {
+  outline: none;
+  border-color: var(--ak-input-border-focus);
+  box-shadow: 0 0 0 3px var(--ak-cyan-glow);
+}
+
+.ak-form-input::placeholder,
+.ak-form-textarea::placeholder {
+  color: var(--ak-text-muted);
+}
+
+.ak-form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+.ak-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Phone flex group */
+.ak-phone-group {
+  display: flex;
+  gap: 8px;
+}
+
+.ak-country-select {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+/* Checkbox */
+.ak-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ak-checkbox {
+  margin-top: 3px;
+  accent-color: var(--ak-cyan);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.ak-checkbox-label {
+  font-size: 0.82rem;
+  color: var(--ak-text-secondary);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.ak-checkbox-label a {
+  color: var(--ak-cyan);
+  text-decoration: underline;
+}
+
+/* Error banner */
+.ak-error-banner {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+  padding: 10px 14px;
+  border-radius: var(--ak-radius-md);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Submit Button */
+.ak-btn-submit {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: var(--ak-cyan);
+  color: #04121a;
+  border: none;
+  border-radius: var(--ak-radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ak-btn-submit:hover:not(:disabled) {
+  background-color: var(--ak-cyan-hover);
+  box-shadow: 0 4px 14px var(--ak-cyan-glow);
+}
+
+.ak-btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.ak-btn-submit.ak-btn-success {
+  background-color: var(--ak-emerald);
+  color: #ffffff;
+}
+
+/* Success View inside Modal */
+.ak-success-state {
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.ak-success-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--ak-emerald);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+.ak-turnstile-container {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0;
+  min-height: 65px;
+}
