@@ -1,6 +1,6 @@
 import { ContactFormData, ContactSubmissionPayload } from '../components/ContactModal/types';
 
-export const DEFAULT_CONTACT_API_ENDPOINT = 'https://api.akretrix.com/leads';
+export const DEFAULT_CONTACT_API_ENDPOINT = 'https://api.akretrix.com/contact';
 
 export class ContactApiError extends Error {
   public recoverable: boolean;

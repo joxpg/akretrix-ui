@@ -70,9 +70,9 @@ For developers to run `pnpm install` on their local workstations:
 2. Add the token to your local `~/.npmrc`:
    ```ini
    @joxpg:registry=https://npm.pkg.github.com
-   //npm.pkg.github.com/:_authToken=ghp_yourPersonalAccessTokenHere
+   //npm.pkg.github.com/:_authToken=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
    ```
    Or export it in your `~/.zshrc` / `~/.bashrc`:
    ```bash
-   export NODE_AUTH_TOKEN=ghp_yourPersonalAccessTokenHere
+   export NODE_AUTH_TOKEN=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
    ```
